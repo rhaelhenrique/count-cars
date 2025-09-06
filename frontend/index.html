@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Count Cars - RHR</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container" id="screen">
+  <a href="index.html"><h1 class="main-title">Count Cars - RHR</h1></a>
+
+  <!-- Tela Inicial: Número de jogadores -->
+  <div id="screen-players-number">
+    <label for="numPlayers">Informe a quantidade de jogadores:</label>
+    <input type="number" id="numPlayers" min="1" max="10" placeholder="Ex: 3">
+    <button class="green" onclick="submitNumPlayers()">Próximo</button>
+  </div>
+
+  <!-- Tela: Nomes e cores -->
+  <div id="screen-players-info" style="display:none;">
+    <div id="playersInputs"></div>
+    <button class="green" onclick="startGame()">Start</button>
+  </div>
+
+  <!-- Tela: Contador -->
+  <div id="screen-game" style="display:none;">
+    <div class="players-display" id="playersDisplay"></div>
+    <button class="red" onclick="finishGame()">Finalizar</button>
+  </div>
+
+  <!-- Tela: Resultados -->
+  <div id="screen-results" style="display:none;">
+    <h2>Resultados Finais</h2>
+    <div id="resultsList"></div>
+    <button class="green" onclick="restartGame()">Recomeçar</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
