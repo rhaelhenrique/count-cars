@@ -105,10 +105,10 @@ async function startGame() {
     });
     const data = await response.json();
     console.log('Jogadores enviados:', data);
-    alert('Jogadores salvos com sucesso!');
+    //alert('Jogadores salvos com sucesso!');
   } catch (error) {
     console.error('Erro ao salvar jogadores:', error);
-    alert('Erro ao salvar jogadores no servidor.');
+    //alert('Erro ao salvar jogadores no servidor.');
   }
 
   document.getElementById('screen-players-info').style.display = 'none';
@@ -168,10 +168,10 @@ async function finishGame() {
     });
     const data = await response.json();
     console.log('Resultados enviados:', data);
-    alert('Resultados salvos com sucesso!');
+    //alert('Resultados salvos com sucesso!');
   } catch (error) {
     console.error('Erro ao salvar resultados:', error);
-    alert('Erro ao salvar resultados no servidor.');
+    //alert('Erro ao salvar resultados no servidor.');
   }
 
   players.forEach(player => {
