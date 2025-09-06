@@ -1,3 +1,4 @@
+/* ===== Corpo e fonte ===== */
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #f5f5f5;
@@ -8,26 +9,29 @@ body {
   align-items: center;
 }
 
+/* ===== Container principal ===== */
 .container {
-  max-width: 500px;
-  width: 100%;
+  max-width: 500px;  
+  width: 90%;        /* ajusta para telas menores */
   margin: 40px auto;
   background: #fff;
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-h1 {
+/* ===== Títulos ===== */
+h1, h1.main-title {
   text-align: center;
   color: #333;
   margin-bottom: 30px;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
+/* ===== Labels e inputs ===== */
 label {
   display: block;
   margin-bottom: 8px;
@@ -36,21 +40,22 @@ label {
 
 input[type="number"], input[type="text"], input[type="color"] {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin-bottom: 15px;
   border-radius: 6px;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
+/* ===== Botões ===== */
 button {
-  padding: 12px 20px;
-  border: none;
+  padding: 12px 0;
+  font-size: 16px;
   border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
   width: 100%;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 button.green {
@@ -63,69 +68,32 @@ button.red {
   color: #fff;
 }
 
+/* ===== Player row ===== */
 .player-row {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
   gap: 10px;
+  flex-wrap: wrap; /* melhora responsividade */
 }
 
 .player-row input[type="text"] {
-  flex: 2;
+  flex: 2 1 150px;
 }
 
 .player-row input[type="color"] {
-  flex: 1;
+  flex: 1 1 50px;
   padding: 0;
   height: 40px;
 }
 
-.players-display {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.player-counter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #eee;
-  padding: 10px 15px;
-  border-radius: 8px;
-}
-
-.player-counter span {
-  font-weight: bold;
-}
-
-.player-counter button {
-  width: 40px;              /* Largura do círculo */
-  height: 40px;             /* Altura do círculo */
-  font-size: 24px;          /* Tamanho do símbolo + */
-  font-weight: bold;         /* Mais visível */
-  border-radius: 50%;        /* Formato circular */
-  background-color: #4CAF50; /* Cor verde */
-  color: #fff;               /* Cor do + */
-  border: none;
-  cursor: pointer;
-
-  display: flex;             /* Flex para centralizar */
-  justify-content: center;
-  align-items: center;
-  transition: background 0.2s;
-}
-
-.player-counter button:hover {
-  background-color: #45a049; /* Hover mais escuro */
-}
-
+/* ===== Container de cores ===== */
 .color-container {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
   margin-top: 5px;
+  justify-content: center;
 }
 
 .color-box {
@@ -146,22 +114,83 @@ button.red {
   border: 3px solid #000;
 }
 
+/* ===== Players display ===== */
+.players-display {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* ===== Contadores ===== */
+.player-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eee;
+  padding: 10px 15px;
+  border-radius: 8px;
+  flex-wrap: wrap; /* empilha no celular */
+  gap: 10px;
+}
+
+.player-counter span {
+  font-weight: bold;
+}
+
+/* ===== Botões circulares ===== */
+.player-counter button,
 .player-counter button.red {
   width: 40px;
   height: 40px;
   font-size: 24px;
   font-weight: bold;
   border-radius: 50%;
-  background-color: #f44336;
-  color: #fff;
   border: none;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   transition: background 0.2s;
+}
+
+.player-counter button {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.player-counter button:hover {
+  background-color: #45a049;
+}
+
+.player-counter button.red {
+  background-color: #f44336;
+  color: #fff;
 }
 
 .player-counter button.red:hover {
   background-color: #d32f2f;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 480px) {
+  h1, h1.main-title {
+    font-size: 22px;
+  }
+
+  .player-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .player-counter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .player-counter button {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
 }
