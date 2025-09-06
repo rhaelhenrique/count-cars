@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 import os
 
 app = FastAPI()
@@ -38,12 +39,7 @@ class ResultsData(BaseModel):
 stored_players: List[Player] = []
 stored_results: List[Player] = []
 
-# ===== Rotas =====
-
-@app.get("/")
-def read_root():
-    return {"msg": "API FastAPI rodando 🚀"}
-
+# ===== Rotas da API =====
 @app.post("/players")
 def save_players(data: PlayersData):
     global stored_players
@@ -64,4 +60,14 @@ def get_players():
 def get_results():
     return {"results": stored_results}
 
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
+
+# ===== Frontend =====
+frontend_dir = os.path.join(os.path.dirname(__file__), "../frontend")
+
+# arquivos estáticos (CSS, JS, imagens)
+app.mount("/static", StaticFiles(directory=frontend_dir), name="static")
+
+# rota principal -> index.html
+@app.get("/")
+async def serve_index():
+    return FileResponse(os.path.join(frontend_dir, "index.html"))
