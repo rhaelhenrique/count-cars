@@ -5,8 +5,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import os
 
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
-
 app = FastAPI()
 
 # ===== Configurar CORS =====
@@ -65,3 +63,5 @@ def get_players():
 @app.get("/results")
 def get_results():
     return {"results": stored_results}
+
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
