@@ -2,6 +2,10 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+import os
+
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
 app = FastAPI()
 
