@@ -12,7 +12,7 @@ body {
 /* ===== Container principal ===== */
 .container {
   max-width: 500px;  
-  width: 90%;        /* ajusta para telas menores */
+  width: 90%;
   margin: 40px auto;
   background: #fff;
   padding: 20px;
@@ -74,7 +74,7 @@ button.red {
   align-items: center;
   margin-bottom: 10px;
   gap: 10px;
-  flex-wrap: wrap; /* melhora responsividade */
+  flex-wrap: wrap;
 }
 
 .player-row input[type="text"] {
@@ -130,8 +130,8 @@ button.red {
   background: #eee;
   padding: 10px 15px;
   border-radius: 8px;
-  flex-wrap: wrap; /* empilha no celular */
   gap: 10px;
+  flex-wrap: wrap; /* só elementos que precisam empilhar */
 }
 
 .player-counter span {
@@ -183,9 +183,15 @@ button.red {
     align-items: flex-start;
   }
 
+  /* mantém botões na horizontal, mas ajusta tamanho */
   .player-counter {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row; /* sempre horizontal para os botões */
+    justify-content: space-between;
+  }
+
+  .player-counter span {
+    font-size: 14px;
+    margin-bottom: 5px;
   }
 
   .player-counter button {
